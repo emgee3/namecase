@@ -1,0 +1,29 @@
+{
+  "name": "namecase",
+  "version": "v0.0.1",
+  "description": "Module for fixing capitalization of people's names",
+  "keywords": [
+    "namecase",
+    "name",
+    "case",
+    "capitalization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emgee3/namecase.git"
+  },
+  "author": "Mason Gravitt <emgee@gravitronic.com>",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "1.13.*"
+  },
+  "main": "namecase",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "bugs": "https://github.com/emgee3/namecase/issues"
+}
