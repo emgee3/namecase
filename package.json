@@ -18,7 +18,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "1.13.*"
+    "mocha": ">=1.10.0 <2.0.0"
   },
   "main": "namecase",
   "readmeFilename": "README.md",
