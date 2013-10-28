@@ -61,3 +61,4 @@ console.log("MCKINLEY".toNameCase());
 
 ```
 
+[![Build Status](https://travis-ci.org/emgee3/namecase.png)](https://travis-ci.org/emgee3/namecase)
