@@ -19,9 +19,26 @@
   var nc = function (el) {
     el = el
       .trim()
-      .toLowerCase()
-      .replace(/\b(\w)/g,   function (v) { return v.toUpperCase(); } )
-      .replace(/(\'\w)\b/g, function (v) { return v.toLowerCase(); } );
+      .toLowerCase();
+
+
+    // Split names on regex whitespace, dash or apostrophe, workaround for 
+    // Javascript regex word boundary \b splitting on unicode characters
+    // http://stackoverflow.com/questions/5311618/javascript-regular-expression-problem-with-b-and-international-characters
+    var splitters = [
+      { s : /\s/, r : " "},
+      { s : /\-/, r : "-"},
+      { s : /\'/, r : "'"}
+    ];
+
+    for (var i = 0; i < splitters.length; i++) {
+      var elArr = el.split(splitters[i].s);
+      for (var j = 0; j < elArr.length; j++) {
+        elArr[j] = elArr[j].charAt(0).toUpperCase() + elArr[j].slice(1);
+      }
+      el = elArr.join(splitters[i].r);
+    }
+
 
     // Name case Mcs and Macs 
     // Exclude names with 1-2 letters after prefix like Mack, Macky, Mace
