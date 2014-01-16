@@ -43,7 +43,6 @@
     // Name case Mcs and Macs 
     // Exclude names with 1-2 letters after prefix like Mack, Macky, Mace
     // Exclude names ending in a,c,i,o, or j are typically Polish or Italian
-
     if (new RegExp(/\bMac[A-Za-z]{2,}[^aciozj]\b/).test(el) ||                    
         new RegExp(/\bMc/).test(el)) {
 
@@ -87,11 +86,10 @@
     // And correct Mac exceptions otherwise missed
     el = el
       .replace(/\bMacmurdo/, "MacMurdo")
-      .replace(/\bMacisaac/, "MacIsaac");
+      .replace(/\bMacisaac/, "MacIsaac")
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
-    el = el
       .replace(/\bAl(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
       .replace(/\bAp\b/g,           "ap")     // ap Welsh.
       .replace(/\bBen(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
@@ -102,18 +100,20 @@
       .replace(/\bLa\b/g,           "la")     // la French 
       .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
       .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
-      .replace(/\bVon\b/g,          "von");   // von Dutch/Flemish
+      .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
 
 
     // Fixes for roman numeral names, e.g. Henry VIII
-    el = el.replace(/\b(?:\d{4}|(?:[IVX])(?:X{0,3}I{0,3}|X{0,2}VI{0,3}|X{0,2}I?[VX]))$/i, 
-      function (v) { 
-        return v.toUpperCase(); 
-      });
+      .replace(/\b(?:\d{4}|(?:[IVX])(?:X{0,3}I{0,3}|X{0,2}VI{0,3}|X{0,2}I?[VX]))$/i, 
+        function (v) { 
+          return v.toUpperCase(); 
+        })
     
 
     // Nation of Islam 2X, 3X, etc. names
-    el = el.replace(/\b[0-9](x)\b/, function (v) { return v.toUpperCase(); } );
+      .replace(/\b[0-9](x)\b/, function (v) { return v.toUpperCase(); } )
+
+
     // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized 
     // fixes /JJ Abrams/ and /JD Salinger/
     // With some exceptions 
@@ -134,7 +134,7 @@
       .replace(/\bY\s/g,   "y");
 
     return el;
-  }
+  };
 
 
   if (typeof exports !== 'undefined') {

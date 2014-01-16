@@ -1,6 +1,6 @@
 {
   "name": "namecase",
-  "version": "v0.0.1",
+  "version": "v0.0.2",
   "description": "Module for fixing capitalization of people's names",
   "keywords": [
     "namecase",
@@ -25,5 +25,6 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test"
   },
+  "bin": "./bin/namecase",
   "bugs": "https://github.com/emgee3/namecase/issues"
 }
