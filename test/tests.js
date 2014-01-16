@@ -10,8 +10,8 @@ describe('NameCase', function () {
 
 describe('NameCase.checkName()', function () {
   it('should see if case fixes are necessary', function () {
-    assert.equal(true, nc.checkName('GEORGE WASHINGTON'));
-    assert.equal(true, nc.checkName('george washington'));
+    assert.equal(true,  nc.checkName('GEORGE WASHINGTON'));
+    assert.equal(true,  nc.checkName('george washington'));
     assert.equal(false, nc.checkName('George Washington'));
   });
 });
@@ -51,7 +51,7 @@ describe('NameCase.singleField()', function () {
 // thanks to http://en.wikipedia.org/wiki/List_of_programmers
 var combinedFieldNames = [
   "Michael Abrash",         "Scott Adams",            "Leonard Adleman",          "Alfred Aho", 
-  /* "JJ Allaire", -- sorry JJ, you need a custom rule */ 
+  "JJ Allaire",
   "Andrei Alexandrescu",    "Paul Allen",             "Eric Allman",              "Marc Andreessen", 
   "Bill Atkinson",          "John Backus",            "Richard Bartle",           "Brian Behlendorf", 
   "Kent Beck",              "Donald Becker",          "Doug Bell",                "Fabrice Bellard", 
@@ -76,8 +76,7 @@ var combinedFieldNames = [
   "David Albert Huffman",   "Rebecca Heineman",       "Anders Hejlsberg",         "Ted Henter", 
   "Andy Hertzfeld",         "Rich Hickey",            "D. Richard Hipp",          "C. A. R. Hoare", 
   "James Holmes",           "Grace Hopper",           "Dave Hyatt",               "Miguel de Icaza", 
-  "Roberto Ierusalimschy",  "Dan Ingalls", 
-  /* "Geir Ivarsøy", I8N bug */ 
+  "Roberto Ierusalimschy",  "Dan Ingalls",            "Geir Ivarsøy", 
   "Kenneth E. Iverson",     "Toru Iwatani",           "Bo Jangeborg",             "Paul Jardetzky", 
   "Lynne Jolitz",           "William Jolitz",         "Stephen C. Johnson",       "Bill Joy",
   "Robert K. Jung",         "Poul-Henning Kamp",      "Mitch Kapor",              "Phil Katz", 
@@ -87,8 +86,7 @@ var combinedFieldNames = [
   /* "Andre LaMothe", Combined La names are an issue */ 
   "Tom Lane",               "Leslie Lamport",         "Butler Lampson",           "Sam Lantinga", 
   "Richard H. Lathwell",    "Chris Lattner",          "Samuel J Leffler",         "Rasmus Lerdorf", 
-  "Michael Lesk",           "Gordon Letwin",          "Rockford Lhotka",      
-  /* "Håkon Wium Lie", I8N bug */ 
+  "Michael Lesk",           "Gordon Letwin",          "Rockford Lhotka",          "Håkon Wium Lie",
   "Robert Love",            "Ada Lovelace",           "Al Lowe",                  "Raphael Manfredi", 
   "Khaled Mardam-Bey",      "Yukihiro Matsumoto",     "John McCarthy",            "Craig McClanahan", 
   "Daniel D. McCracken",    "Douglas McIlroy",        "Shawn McKenzie",           "Marshall Kirk McKusick", 
