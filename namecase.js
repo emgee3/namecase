@@ -114,6 +114,24 @@
 
     // Nation of Islam 2X, 3X, etc. names
     el = el.replace(/\b[0-9](x)\b/, function (v) { return v.toUpperCase(); } );
+    // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized 
+    // fixes /JJ Abrams/ and /JD Salinger/
+    // With some exceptions 
+      .replace(/\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{2}\s/, function (v) { return v.toUpperCase(); } )
+      .replace(/\bMR\s/, "Mr")
+      .replace(/\bMS\s/, "Ms")
+      .replace(/\bDR\s/, "Dr")
+      .replace(/\bST\s/, "St")
+      .replace(/\bJR\s/, "Jr")
+      .replace(/\bSR\s/, "Sr")
+      .replace(/\bLT\s/, "Lt")
+
+
+    // lowercase words 
+      .replace(/\bThe\b/g, "the")
+      .replace(/\bOf\b/g,  "of")
+      .replace(/\bAnd\b/g, "and")
+      .replace(/\bY\s/g,   "y");
 
     return el;
   }
