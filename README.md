@@ -19,6 +19,8 @@ your application stores first and last names in separate fields, this is the pre
 ```NameCase.combinedField()``` returns a properly capitalized name when a person's entire name is combined into the same field. 
 It is the same as NameCase.singleField(), with the exception that it always capitalizes the first character in the name. 
 
+Namecase can also be executed from the command line via ```namecase```, which accepts data from stdin and outputs the formatted names to stdout. 
+
 
 ## Examples
 
@@ -60,5 +62,14 @@ console.log("WILLIAM".toNameCase());
 console.log("MCKINLEY".toNameCase());
 
 ```
+
+### Command line
+
+Install with ```npm install -g namecase```.
+
+```
+namecase < input.txt > ouput.txt
+```
+
 
 [![Build Status](https://travis-ci.org/emgee3/namecase.png)](https://travis-ci.org/emgee3/namecase)
