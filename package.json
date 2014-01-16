@@ -14,7 +14,7 @@
   },
   "author": "Mason Gravitt <emgee@gravitronic.com>",
   "engines": {
-    "node": "*"
+    "node": ">=0.8.0"
   },
   "dependencies": {},
   "devDependencies": {
