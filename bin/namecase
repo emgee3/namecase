@@ -17,9 +17,7 @@ process.stdin.on('end', function () {
 
   for (var i = 0; i < str.length; i++) {
     out.push(
-      Namecase.combinedField(
-        str[i]
-      )
+      Namecase(str[i])
     );
   }
 
