@@ -9,15 +9,16 @@ them all. However, when working with legacy databases, sometimes such a module i
 
 ## Usage
 
-NameCase provides three functions:
+NameCase provides two functions:
 
 ```NameCase.checkName()``` which returns true if the name is in all ```UPPERCASE``` or ```lowercase```.
 
-```NameCase.singleField()``` which returns a properly capitalized name and works best on single name fields, specifially, 
-your application stores first and last names in separate fields, this is the preferred method to use. 
+```NameCase(string or array, { individualFields : boolean })``` returns a properly capitalized name.
 
-```NameCase.combinedField()``` returns a properly capitalized name when a person's entire name is combined into the same field. 
-It is the same as NameCase.singleField(), with the exception that it always capitalizes the first character in the name. 
+The option ```individualFields``` defaults to false which works best when the person's names are combined 
+into a single field. If ```individualFields``` is set to true, it means you're passing in given and surnames 
+separately. The only difference between these two options is with ```individualFields``` set to false, 
+the first character is always capitalized.
 
 Namecase can also be executed from the command line via ```namecase```, which accepts data from stdin and outputs the formatted names to stdout. 
 
