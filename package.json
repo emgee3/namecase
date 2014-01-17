@@ -1,10 +1,10 @@
 {
   "name": "namecase",
-  "version": "v0.0.2",
+  "version": "v1.0.0",
   "description": "Module for fixing capitalization of people's names",
   "keywords": [
     "namecase",
-    "name",
+    "names",
     "case",
     "capitalization"
   ],
