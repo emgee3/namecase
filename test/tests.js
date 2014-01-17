@@ -3,8 +3,8 @@ var nc = require('../namecase');
 
 describe('NameCase', function () {
   it('should handle basic capitalization', function () {
-    assert.equal('George Washington', nc.singleField('GEORGE WASHINGTON'));
-    assert.equal('George Washington', nc.singleField('george washington'));
+    assert.equal('George Washington', nc('GEORGE WASHINGTON'));
+    assert.equal('George Washington', nc('george washington'));
   });
 });
 
@@ -18,7 +18,7 @@ describe('NameCase.checkName()', function () {
 
 
 // Names from http://cpansearch.perl.org/src/SUMMER/Lingua-EN-NameCase-1.15/t/namecase.t
-var singleFieldNames = [
+var individualFields = [
   "Keith",            "Leigh-Williams",       "McCarthy",
   "O'Callaghan",      "St. John",             "von Streit",
   "van Dyke",         "Van",                  "ap Llwyd Dafydd",      
@@ -39,17 +39,17 @@ var singleFieldNames = [
   "Charles II"
 ]; 
   
-describe('NameCase.singleField()', function () {
+describe('NameCase on individual fields', function () {
   it('should handle list of names', function () {
-    for (var i = 0; i < singleFieldNames.length; i++) {
-      assert.equal(singleFieldNames[i], nc.singleField(singleFieldNames[i]));
+    for (var i = 0; i < individualFields.length; i++) {
+      assert.equal(individualFields[i], nc(individualFields[i], { individualFields : true }));
     }
   });
 });
 
 
 // thanks to http://en.wikipedia.org/wiki/List_of_programmers
-var combinedFieldNames = [
+var combinedFields = [
   "Michael Abrash",         "Scott Adams",            "Leonard Adleman",          "Alfred Aho", 
   "JJ Allaire",
   "Andrei Alexandrescu",    "Paul Allen",             "Eric Allman",              "Marc Andreessen", 
@@ -122,10 +122,10 @@ var combinedFieldNames = [
   "Jamie Zawinski",         "Philip Zimmermann",      "Mark Zuckerberg"
 ];
 
-describe('NameCase.combinedField()', function () {
+describe('NameCase on combined fields', function () {
   it('should handle list of names', function () {
-    for (var i = 0; i < combinedFieldNames.length; i++) {
-      assert.equal(combinedFieldNames[i], nc.combinedField(combinedFieldNames[i]));
+    for (var i = 0; i < combinedFields.length; i++) {
+      assert.equal(combinedFields[i], nc(combinedFields[i]));
     }
   });
 });

@@ -2,25 +2,10 @@
 
   var root = this;
 
-  var NameCase = {};
-
-  NameCase.checkName = function (name) {
-    return name === name.toLowerCase() || name === name.toUpperCase();
-  };
-
-  NameCase.singleField = function (name) {
-    return nc(name);
-  };
-
-  NameCase.combinedField = function (name) {
-    return name.charAt(0).toUpperCase() + nc(name).substring(1); 
-  };
-
-  var nc = function (el) {
+  var NameCase = function (el, opt) {
     el = el
       .trim()
       .toLowerCase();
-
 
     // Split names on regex whitespace, dash or apostrophe, workaround for 
     // Javascript regex word boundary \b splitting on unicode characters
@@ -133,7 +118,21 @@
       .replace(/\bAnd\b/g, "and")
       .replace(/\bY\s/g,   "y");
 
-    return el;
+
+    // check if we should force the first character to caps
+    opt = opt || {};
+    if (opt.hasOwnProperty('individualFields') && opt.individualFields === true) {
+      // first character may be lowercase
+      return el;
+    }
+
+    // force first character to be uppercase
+    return el.charAt(0).toUpperCase() + el.substring(1);
+  };
+
+
+  NameCase.checkName = function (name) {
+    return name === name.toLowerCase() || name === name.toUpperCase();
   };
 
 
