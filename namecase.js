@@ -2,7 +2,22 @@
 
   var root = this;
 
-  var NameCase = function (el, opt) {
+  var NameCase = function (input, opt) {
+
+    if (typeof input === "string") {
+      return nc(input, opt);
+    }
+
+    var output = [];
+
+    for (var i = 0; i < input.length; i++) {
+      output.push(nc(input[i], opt));
+    }
+
+    return output;
+  };
+
+  var nc = function (el, opt) {
     el = el
       .trim()
       .toLowerCase();

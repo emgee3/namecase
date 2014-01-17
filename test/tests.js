@@ -1,18 +1,31 @@
 var assert = require('assert');
 var nc = require('../namecase');
 
-describe('NameCase', function () {
-  it('should handle basic capitalization', function () {
-    assert.equal('George Washington', nc('GEORGE WASHINGTON'));
-    assert.equal('George Washington', nc('george washington'));
-  });
-});
-
 describe('NameCase.checkName()', function () {
   it('should see if case fixes are necessary', function () {
     assert.equal(true,  nc.checkName('GEORGE WASHINGTON'));
     assert.equal(true,  nc.checkName('george washington'));
     assert.equal(false, nc.checkName('George Washington'));
+  });
+});
+
+
+describe('Input Types', function () {
+  it('should handle strings or arrays', function () {
+    assert.equal('George Washington', nc('GEORGE WASHINGTON'));
+    assert.deepEqual(
+         ['George Washington', 'Thomas Jefferson'], 
+      nc(['George Washington', 'Thomas Jefferson'])
+    );
+  });
+});
+
+
+describe('NameCase', function () {
+  it('should handle basic capitalization', function () {
+    assert.equal('George Washington', nc('GEORGE WASHINGTON'));
+    assert.equal('George Washington', nc('george washington'));
+    assert.equal('George Washington', nc('gEoRgE wAsHiNgToN'));
   });
 });
 
