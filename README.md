@@ -36,7 +36,7 @@ Namecase can also be executed from the command line via ```namecase```, which ac
 
   if (NameCase.checkName(name)) {
     document.write(
-      NameCase.combinedField(name)
+      NameCase(name)
     );
   } else {
     document.write(name);
@@ -55,7 +55,7 @@ String.prototype.toNameCase = function () {
   var name = this.toString();
 
   if (nc.checkName(name)) {
-    return nc.singleField(name);
+    return nc(name, { individualFields : true } );
   }
 }
 
