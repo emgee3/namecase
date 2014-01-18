@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var Namecase = require('../namecase');
+var NameCase = require('../namecase');
 var os = require('os');
 
 var str = "", out = [];
@@ -16,9 +16,11 @@ process.stdin.on('end', function () {
   str = str.split(/\r\n|\r|\n/);
 
   for (var i = 0; i < str.length; i++) {
-    out.push(
-      Namecase(str[i])
-    );
+    if (NameCase.checkName(str[i])) {
+      out.push(NameCase(str[i]));
+    } else {
+      out.push(str[i]);
+    }
   }
 
   process.stdout.write(out.join(os.EOL));  
