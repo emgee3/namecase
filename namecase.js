@@ -28,7 +28,10 @@
     var splitters = [
       { s : /\s/, r : " "},
       { s : /\-/, r : "-"},
-      { s : /\'/, r : "'"}
+      { s : /\'/, r : "'"},
+      { s : /\"/, r : '"'},
+      { s : /\(/, r : "("},
+      { s : /\./, r : "."}
     ];
 
     for (var i = 0; i < splitters.length; i++) {
@@ -131,7 +134,11 @@
       .replace(/\bThe\b/g, "the")
       .replace(/\bOf\b/g,  "of")
       .replace(/\bAnd\b/g, "and")
-      .replace(/\bY\s/g,   "y");
+      .replace(/\bY\s/g,   "y")
+
+
+    // strip extra spaces
+      .replace(/\s{2,}/g, ' ');
 
 
     // check if we should force the first character to caps
