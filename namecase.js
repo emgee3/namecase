@@ -158,6 +158,11 @@
   };
 
 
+  NameCase.normalize = function (name) {
+    return name.replace(/\s{2,}/g, ' ');
+  };
+
+
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = NameCase;

@@ -19,7 +19,7 @@ process.stdin.on('end', function () {
     if (NameCase.checkName(str[i])) {
       out.push(NameCase(str[i]));
     } else {
-      out.push(str[i]);
+      out.push(NameCase.normalize(str[i]));
     }
   }
 
