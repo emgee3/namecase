@@ -3,3 +3,4 @@ log
 tmp
 node_modules
 npm-debug.log
+coverage

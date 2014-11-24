@@ -22,7 +22,7 @@
       .trim()
       .toLowerCase();
 
-    // Split names on regex whitespace, dash or apostrophe, workaround for 
+    // Split names on regex whitespace, dash or apostrophe, workaround for
     // Javascript regex word boundary \b splitting on unicode characters
     // http://stackoverflow.com/questions/5311618/javascript-regular-expression-problem-with-b-and-international-characters
     var splitters = [
@@ -43,16 +43,16 @@
     }
 
 
-    // Name case Mcs and Macs 
+    // Name case Mcs and Macs
     // Exclude names with 1-2 letters after prefix like Mack, Macky, Mace
     // Exclude names ending in a,c,i,o, or j are typically Polish or Italian
-    if (new RegExp(/\bMac[A-Za-z]{2,}[^aciozj]\b/).test(el) ||                    
+    if (new RegExp(/\bMac[A-Za-z]{2,}[^aciozj]\b/).test(el) ||
         new RegExp(/\bMc/).test(el)) {
 
       el = el.replace(
-        /\b(Ma?c)([A-Za-z]+)/, 
-        function (x,y,z) { 
-          return y + z.charAt(0).toUpperCase() + z.substring(1); 
+        /\b(Ma?c)([A-Za-z]+)/,
+        function (x,y,z) {
+          return y + z.charAt(0).toUpperCase() + z.substring(1);
         });
 
       // Now correct for "Mac" exceptions
@@ -99,27 +99,27 @@
       .replace(/\bDell([ae])\b/g,   "dell$1") // della and delle Italian.
       .replace(/\bD([aeiu])\b/g,    "d$1")    // da, de, di Italian; du French.
       .replace(/\bDe([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
-      .replace(/\bEl\b/g,           "el")     // el Greek 
-      .replace(/\bLa\b/g,           "la")     // la French 
+      .replace(/\bEl\b/g,           "el")     // el Greek
+      .replace(/\bLa\b/g,           "la")     // la French
       .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
       .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
       .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
 
 
     // Fixes for roman numeral names, e.g. Henry VIII
-      .replace(/\b(?:\d{4}|(?:[IVX])(?:X{0,3}I{0,3}|X{0,2}VI{0,3}|X{0,2}I?[VX]))$/i, 
-        function (v) { 
-          return v.toUpperCase(); 
+      .replace(/\b(?:\d{4}|(?:[IVX])(?:X{0,3}I{0,3}|X{0,2}VI{0,3}|X{0,2}I?[VX]))$/i,
+        function (v) {
+          return v.toUpperCase();
         })
-    
+
 
     // Nation of Islam 2X, 3X, etc. names
       .replace(/\b[0-9](x)\b/, function (v) { return v.toUpperCase(); } )
 
 
-    // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized 
+    // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized
     // fixes /JJ Abrams/ and /JD Salinger/
-    // With some exceptions 
+    // With some exceptions
       .replace(/\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{2}\s/, function (v) { return v.toUpperCase(); } )
       .replace(/\bMR\s/, "Mr")
       .replace(/\bMS\s/, "Ms")
@@ -130,7 +130,7 @@
       .replace(/\bLT\s/, "Lt")
 
 
-    // lowercase words 
+    // lowercase words
       .replace(/\bThe\b/g, "the")
       .replace(/\bOf\b/g,  "of")
       .replace(/\bAnd\b/g, "and")
