@@ -1,4 +1,5 @@
 Package.describe({
+  name: "emgee:namecase",
   summary: "A Javascript library for fixing the capitalization of people's names.",
   version: "1.1.0",
   git: "https://github.com/emgee3/namecase.git"
