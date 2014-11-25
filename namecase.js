@@ -2,7 +2,7 @@
 
   var root = this;
 
-  var NameCase = function (input, opt) {
+  var namecase = function (input, opt) {
 
     if (typeof input === "string") {
       return nc(input, opt);
@@ -168,14 +168,9 @@
   };
 
 
-
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = NameCase;
-    }
-    exports.NameCase = NameCase;
+  if (typeof module !== 'undefined' && module && module.exports) {
+    module.exports = namecase;
   } else {
-    root.NameCase = NameCase;
+    NameCase = namecase;
   }
-
 }).call(this);

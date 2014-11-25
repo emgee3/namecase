@@ -72,5 +72,23 @@ Install with ```npm install -g namecase```.
 namecase < input.txt > ouput.txt
 ```
 
+### Meteor Integration
+
+NameCase also includes (Meteor)[http://meteor.com] integration. The `NameCase` function is available
+on the Client and Server and comes with a Template helper entitled `NameCase`.
+
+```
+<template name="templateName">
+  {{ NameCase "abe lincoln" optionalNamecaseOptionsHelper }}
+</template>
+```
+
+```
+Template.templateName.helpers({
+  optionalNamecaseOptionsHelper : function () {
+    return { individualFields : true };
+  }
+});
+```
 
 [![Build Status](https://travis-ci.org/emgee3/namecase.png)](https://travis-ci.org/emgee3/namecase)
