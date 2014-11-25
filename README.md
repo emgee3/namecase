@@ -74,7 +74,7 @@ namecase < input.txt > ouput.txt
 
 ### Meteor Integration
 
-NameCase also includes (Meteor)[http://meteor.com] integration. The `NameCase` function is available
+NameCase also includes [Meteor](http://meteor.com) integration. The `NameCase` function is available
 on the Client and Server and comes with a Template helper entitled `NameCase`.
 
 ```
