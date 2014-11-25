@@ -9,7 +9,7 @@ process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', function(chunk) {
-  str += chunk;  
+  str += chunk;
 });
 
 process.stdin.on('end', function () {
@@ -23,6 +23,6 @@ process.stdin.on('end', function () {
     }
   }
 
-  process.stdout.write(out.join(os.EOL));  
+  process.stdout.write(out.join(os.EOL));
 });
 

@@ -17,7 +17,23 @@
     return output;
   };
 
+
+  // Don't change capitalization unless capitalization isn't set
+  namecase.checkName = function (name) {
+    return name === name.toLowerCase() || name === name.toUpperCase();
+  };
+
+
+  // Strip out extraneous spaces
+  namecase.normalize = function (name) {
+    return name.replace(/\s{2,}/g, ' ');
+  };
+
+
+  // Actual case fixing function
   var nc = function (el, opt) {
+    opt = opt || {};
+
     el = el
       .trim()
       .toLowerCase();
@@ -88,8 +104,8 @@
 
     // And correct Mac exceptions otherwise missed
     el = el
-      .replace(/\bMacmurdo/, "MacMurdo")
-      .replace(/\bMacisaac/, "MacIsaac")
+      .replace(/\bMacmurdo/,        "MacMurdo")
+      .replace(/\bMacisaac/,        "MacIsaac")
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
@@ -121,28 +137,27 @@
     // fixes /JJ Abrams/ and /JD Salinger/
     // With some exceptions
       .replace(/\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{2}\s/, function (v) { return v.toUpperCase(); } )
-      .replace(/\bMR\s/, "Mr")
-      .replace(/\bMS\s/, "Ms")
-      .replace(/\bDR\s/, "Dr")
-      .replace(/\bST\s/, "St")
-      .replace(/\bJR\s/, "Jr")
-      .replace(/\bSR\s/, "Sr")
-      .replace(/\bLT\s/, "Lt")
+      .replace(/\bMR\s/,            "Mr")
+      .replace(/\bMS\s/,            "Ms")
+      .replace(/\bDR\s/,            "Dr")
+      .replace(/\bST\s/,            "St")
+      .replace(/\bJR\s/,            "Jr")
+      .replace(/\bSR\s/,            "Sr")
+      .replace(/\bLT\s/,            "Lt")
 
 
     // lowercase words
-      .replace(/\bThe\b/g, "the")
-      .replace(/\bOf\b/g,  "of")
-      .replace(/\bAnd\b/g, "and")
-      .replace(/\bY\s/g,   "y")
+      .replace(/\bThe\b/g,          "the")
+      .replace(/\bOf\b/g,           "of")
+      .replace(/\bAnd\b/g,          "and")
+      .replace(/\bY\s/g,            "y")
 
 
     // strip extra spaces
-      .replace(/\s{2,}/g, ' ');
+      .replace(/\s{2,}/g,           ' ');
 
 
     // check if we should force the first character to caps
-    opt = opt || {};
     if (opt.hasOwnProperty('individualFields') && opt.individualFields === true) {
       // first character may be lowercase
       return el;
@@ -152,15 +167,6 @@
     return el.charAt(0).toUpperCase() + el.substring(1);
   };
 
-
-  NameCase.checkName = function (name) {
-    return name === name.toLowerCase() || name === name.toUpperCase();
-  };
-
-
-  NameCase.normalize = function (name) {
-    return name.replace(/\s{2,}/g, ' ');
-  };
 
 
   if (typeof exports !== 'undefined') {
