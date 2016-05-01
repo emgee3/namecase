@@ -1,20 +1,18 @@
 (function() {
-
-  var root = this;
-
   var namecase = function (input, opt) {
+    var output = [];
+
+    if (isArray(input)) {
+      return input.map(function (i) {
+        return namecase(i);
+      });
+    }
 
     if (typeof input === "string") {
       return nc(input, opt);
     }
 
-    var output = [];
-
-    for (var i = 0; i < input.length; i++) {
-      output.push(nc(input[i], opt));
-    }
-
-    return output;
+    return input;
   };
 
 
@@ -174,3 +172,12 @@
     NameCase = namecase;
   }
 }).call(this);
+
+//polyfills just in case
+var toString = {}.toString;
+
+var isArray = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+[].map||(Array.prototype.map=function(a){for(var b=this,c=b.length,d=[],e=0,f;e<b;)d[e]=e in b?a.call(arguments[1],b[e],e++,b):f;return d})

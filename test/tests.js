@@ -11,15 +11,43 @@ describe('NameCase.checkName()', function () {
 
 
 describe('Input Types', function () {
-  it('should handle strings or arrays', function () {
+  it('should handle strings', function () {
     assert.equal('George Washington', nc('GEORGE WASHINGTON'));
+  });
+
+  it('should handle arrays', function () {
     assert.deepEqual(
          ['George Washington', 'Thomas Jefferson'],
       nc(['George Washington', 'Thomas Jefferson'])
     );
   });
-});
 
+  it('should return numbers unaffected', function () {
+    assert.equal(42, nc(42));
+  });
+
+  it('should return dates unaffected', function () {
+    var d = new Date();
+    assert.equal(d, nc(d));
+  });
+
+  it('should not barf on nulls', function () {
+    assert.equal(null, nc(null));
+  });
+
+  it('should not barf on undefined', function () {
+    assert.equal(undefined, nc(undefined));
+  });
+
+  it('should not barf on non-strings inside arrays', function () {
+    var input = [null, undefined, {}, new Date()];
+    var output = nc(input);
+    assert.equal(output[0], nc(input[0]));
+    assert.equal(output[1], nc(input[1]));
+    assert.equal(output[2], nc(input[2]));
+    assert.equal(output[3], nc(input[3]));
+  });
+});
 
 describe('NameCase', function () {
   it('should handle basic capitalization', function () {
