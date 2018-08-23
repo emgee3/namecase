@@ -107,17 +107,17 @@
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
-      .replace(/\bAl(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
-      .replace(/\bAp\b/g,           "ap")     // ap Welsh.
-      .replace(/\bBen(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
-      .replace(/\bDell([ae])\b/g,   "dell$1") // della and delle Italian.
-      .replace(/\bD([aeiu])\b/g,    "d$1")    // da, de, di Italian; du French.
-      .replace(/\bDe([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
-      .replace(/\bEl\b/g,           "el")     // el Greek
-      .replace(/\bLa\b/g,           "la")     // la French
-      .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
-      .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
-      .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
+      .replace(/(?!^)Al(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
+      .replace(/(?!^)Ap\b/g,           "ap")     // ap Welsh.
+      .replace(/(?!^)Ben(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
+      .replace(/(?!^)Dell([ae])\b/g,   "dell$1") // della and delle Italian.
+      .replace(/(?!^)D([aeiu])\b/g,    "d$1")    // da, de, di Italian; du French.
+      .replace(/(?!^)De([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
+      .replace(/(?!^)El\b/g,           "el")     // el Greek
+      .replace(/(?!^)La\b/g,           "la")     // la French
+      .replace(/(?!^)L([eo])\b/g,      "l$1")    // lo Italian; le French.
+      .replace(/(?!^)Van(?=\s+\w)/g,   "van")    // van German or forename Van.
+      .replace(/(?!^)Von\b/g,          "von")    // von Dutch/Flemish
 
 
     // Fixes for roman numeral names, e.g. Henry VIII
