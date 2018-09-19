@@ -96,7 +96,8 @@
         .replace(/\bMacKey\b/,      "Mackey")
         .replace(/\bMacKley\b/,     "Mackley")
         .replace(/\bMacHell\b/,     "Machell")
-        .replace(/\bMacHon\b/,      "Machon");
+        .replace(/\bMacHon\b/,      "Machon")
+        .replace(/\bMacAyla\b/,     "Macayla");
     }
 
 
@@ -107,7 +108,7 @@
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
-      .replace(/\bAl(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
+      .replace(/\bAl(?=\s+\w)\b/g,  "al")     // al Arabic or forename Al.
       .replace(/\bAp\b/g,           "ap")     // ap Welsh.
       .replace(/\bBen(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
       .replace(/\bDell([ae])\b/g,   "dell$1") // della and delle Italian.
@@ -115,8 +116,9 @@
       .replace(/\bDe([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
       .replace(/\bEl\b/g,           "el")     // el Greek
       .replace(/\bLa\b/g,           "la")     // la French
-      .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
-      .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
+      .replace(/\bLe(?=\s+\w)\b/g,  "le")     // le French
+      .replace(/\bLo\b/g,           "lo")     // lo Italian
+      .replace(/\bVan(?=\s+\w)\b/g, "van")    // van German or forename Van.
       .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
 
 
