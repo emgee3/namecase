@@ -163,7 +163,8 @@ var combinedFields = [
   "Steve Wozniak",          "Will Wright",            "Jerry Yang",               "Victor Yngve",
   "Jamie Zawinski",         "Philip Zimmermann",      "Mark Zuckerberg",
   /* Unusual names */
-  "Khiem Le",               "Macayla Carrns",         "Dr Carmen Balzano",        "Dr. Carmen Balzano"
+  "Khiem Le",               "Macayla Carrns",         "Dr Carmen Balzano",        "Dr. Carmen Balzano",
+  "Dr Robert & Ann Leitz",  "Thao & Hy Nguyen",       "Ty Cobb"
 ];
 
 describe('NameCase on combined fields', function () {

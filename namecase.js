@@ -136,7 +136,7 @@
     // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized
     // fixes /JJ Abrams/ and /JD Salinger/
     // With some exceptions
-      .replace(/\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{2}\s/, function (v) { return v.toUpperCase(); } )
+      .replace(/\b[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]{2}\s/, function (v) { return v.toUpperCase(); } )
       .replace(/\bMR\.?\b/,         "Mr")
       .replace(/\bMS\.?\b/,         "Ms")
       .replace(/\bDR\.?\b/,         "Dr")
