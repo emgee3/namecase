@@ -45,7 +45,9 @@
       { s : /\'/, r : "'"},
       { s : /\"/, r : '"'},
       { s : /\(/, r : "("},
-      { s : /\./, r : "."}
+      { s : /\./, r : "."},
+      { s : /,/,  r : ","},
+      { s : /\//, r : "/"}
     ];
 
     for (var i = 0; i < splitters.length; i++) {
@@ -96,7 +98,8 @@
         .replace(/\bMacKey\b/,      "Mackey")
         .replace(/\bMacKley\b/,     "Mackley")
         .replace(/\bMacHell\b/,     "Machell")
-        .replace(/\bMacHon\b/,      "Machon");
+        .replace(/\bMacHon\b/,      "Machon")
+        .replace(/\bMacAyla\b/,     "Macayla");
     }
 
 
@@ -107,7 +110,7 @@
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
-      .replace(/\bAl(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
+      .replace(/\bAl(?=\s+\w)\b/g,  "al")     // al Arabic or forename Al.
       .replace(/\bAp\b/g,           "ap")     // ap Welsh.
       .replace(/\bBen(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
       .replace(/\bDell([ae])\b/g,   "dell$1") // della and delle Italian.
@@ -115,8 +118,9 @@
       .replace(/\bDe([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
       .replace(/\bEl\b/g,           "el")     // el Greek
       .replace(/\bLa\b/g,           "la")     // la French
-      .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
-      .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
+      .replace(/\bLe(?=\s+\w)\b/g,  "le")     // le French
+      .replace(/\bLo\b/g,           "lo")     // lo Italian
+      .replace(/\bVan(?=\s+\w)\b/g, "van")    // van German or forename Van.
       .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
 
 
@@ -134,14 +138,14 @@
     // Somewhat arbitrary rule where two letter combos not containing vowels should be capitalized
     // fixes /JJ Abrams/ and /JD Salinger/
     // With some exceptions
-      .replace(/\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{2}\s/, function (v) { return v.toUpperCase(); } )
-      .replace(/\bMR\s/,            "Mr")
-      .replace(/\bMS\s/,            "Ms")
-      .replace(/\bDR\s/,            "Dr")
-      .replace(/\bST\s/,            "St")
-      .replace(/\bJR\s/,            "Jr")
-      .replace(/\bSR\s/,            "Sr")
-      .replace(/\bLT\s/,            "Lt")
+      .replace(/\b[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]{2}\s/, function (v) { return v.toUpperCase(); } )
+      .replace(/\bMR\.?\b/,         "Mr")
+      .replace(/\bMS\.?\b/,         "Ms")
+      .replace(/\bDR\.?\b/,         "Dr")
+      .replace(/\bST\.?\b/,         "St")
+      .replace(/\bJR\.?\b/,         "Jr")
+      .replace(/\bSR\.?\b/,         "Sr")
+      .replace(/\bLT\.?\b/,         "Lt")
 
 
     // lowercase words

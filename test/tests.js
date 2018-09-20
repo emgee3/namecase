@@ -75,6 +75,7 @@ var individualFields = [
   "Macquarie",        "Machado",              "Macevicius",
   "Maciulis",         "Macias",               "MacMurdo",
   "Mackrell",         "Maclin",               "McConnachie",
+  "Macayla",
   // Roman numerals
   "Henry VIII",       "Louis III",            "Louis XIV",
   "Charles II"
@@ -160,7 +161,11 @@ var combinedFields = [
   "Bruce Wilcox",           "Evan Williams",          "Roberta Williams",         "Sophie Wilson",
   "Dave Winer",             "Niklaus Wirth",          "Stephen Wolfram",          "Don Woods",
   "Steve Wozniak",          "Will Wright",            "Jerry Yang",               "Victor Yngve",
-  "Jamie Zawinski",         "Philip Zimmermann",      "Mark Zuckerberg"
+  "Jamie Zawinski",         "Philip Zimmermann",      "Mark Zuckerberg",
+  /* Unusual names */
+  "Khiem Le",               "Macayla Carrns",         "Dr Carmen Balzano",        "Dr. Carmen Balzano",
+  "Dr Robert & Ann Leitz",  "Thao & Hy Nguyen",       "Ty Cobb",                  "Eugene L. Nath,Jr.",
+  "Lori & Leslie Cotton/Smith",                       "Ron/Alejandra Brown",      "Derrick/Sandra Jackson"
 ];
 
 describe('NameCase on combined fields', function () {
