@@ -107,24 +107,28 @@
 
 
     // Fixes for "son (daughter) of" etc. in various languages.
-      .replace(/\bAl(?=\s+\w)/g,    "al")     // al Arabic or forename Al.
-      .replace(/\bAp\b/g,           "ap")     // ap Welsh.
-      .replace(/\bBen(?=\s+\w)\b/g, "ben")    // ben Hebrew or forename Ben.
-      .replace(/\bDell([ae])\b/g,   "dell$1") // della and delle Italian.
-      .replace(/\bD([aeiu])\b/g,    "d$1")    // da, de, di Italian; du French.
-      .replace(/\bDe([lr])\b/g,     "de$1")   // del Italian; der Dutch/Flemish.
-      .replace(/\bEl\b/g,           "el")     // el Greek
-      .replace(/\bLa\b/g,           "la")     // la French
-      .replace(/\bL([eo])\b/g,      "l$1")    // lo Italian; le French.
-      .replace(/\bVan(?=\s+\w)/g,   "van")    // van German or forename Van.
-      .replace(/\bVon\b/g,          "von")    // von Dutch/Flemish
-
+      .replace(/\bAl(?=\s+\w)/g,        "al")      // al Arabic or forename Al.
+      .replace(/\b(Bin|Binti|Binte)\b/, "bin")     // bin, binti, binte Arabic
+      .replace(/\bAp\b/g,               "ap")      // ap Welsh.
+      .replace(/\bBen(?=\s+\w)\b/g,     "ben")     // ben Hebrew or forename Ben.
+      .replace(/\bDell([ae])\b/g,       "dell$1")  // della and delle Italian.
+      .replace(/\bD([aeiu])\b/g,        "d$1")     // da, de, di Italian; du French.
+      .replace(/\bDe([nlr])\b/g,        "de$1")    // del Italian; der/den Dutch/Flemish.
+      .replace(/\bEl\b/g,               "el")      // el Greek
+      .replace(/\bLa\b/g,               "la")      // la French
+      .replace(/\bL([eo])\b/g,          "l$1")     // lo Italian; le French.
+      .replace(/\bVan(?=\s+\w)/g,       "van")     // van German or forename Van.
+      .replace(/\bVon\b/g,              "von")     // von Dutch/Flemish
 
     // Fixes for roman numeral names, e.g. Henry VIII
-      .replace(/\b(?:\d{4}|(?:[IVX])(?:X{0,3}I{0,3}|X{0,2}VI{0,3}|X{0,2}I?[VX]))$/i,
+      .replace(/\b(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})\b/gi,
         function (v) {
           return v.toUpperCase();
         })
+
+
+    // Lowercase 's
+      .replace(/\'S\b/g,            "'s")
 
 
     // Nation of Islam 2X, 3X, etc. names
@@ -148,8 +152,11 @@
       .replace(/\bThe\b/g,          "the")
       .replace(/\bOf\b/g,           "of")
       .replace(/\bAnd\b/g,          "and")
-      .replace(/\bY\s/g,            "y")
 
+    // spanish
+      .replace(/\bY\s\b/g,          "y ")
+      .replace(/\bE\s\b/g,          "e ")
+      .replace(/\bI\s\b/g,          "i ")
 
     // strip extra spaces
       .replace(/\s{2,}/g,           ' ');
