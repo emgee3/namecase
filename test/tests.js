@@ -68,7 +68,9 @@ var individualFields = [
   "di Caprio",        "du Pont",              "de Legate",
   "del Crond",        "der Sind",             "van der Post",
   "von Trapp",        "la Poisson",           "le Figaro",
-  "Mack Knife",       "Dougal MacDonald",
+  "Mack Knife",       "Dougal MacDonald",     "van den Thillart",
+  "Dato e Iradier",   "Mas i Gavarró",        "Ruiz y Picasso",
+  "Yusof bin Ishak",  "Yuri's",
   // Mac exceptions
   "Machin",           "Machlin",              "Machar",
   "Mackle",           "Macklin",              "Mackie",
@@ -77,7 +79,7 @@ var individualFields = [
   "Mackrell",         "Maclin",               "McConnachie",
   // Roman numerals
   "Henry VIII",       "Louis III",            "Louis XIV",
-  "Charles II"
+  "Charles II",       "Fred XLIX",            "Iñtërnâtiônàlizætiøn"
 ];
 
 describe('NameCase on individual fields', function () {
